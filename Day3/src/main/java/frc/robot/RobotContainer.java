@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj2.command.button.*;
 
 public class RobotContainer {
 
-  private final LedSubsystem m_led_subsystem = new LedSubsystem();
-  private final LedFactory m_led_factory = new LedFactory(m_led_subsystem);
+  private final Coral m_led_subsystem = new Coral();
+  private final CoralFactory m_led_factory = new CoralFactory(m_led_subsystem);
   private final CommandXboxController XBOX_CONTROLLER_0 = new CommandXboxController(0);
 
   public RobotContainer() {
