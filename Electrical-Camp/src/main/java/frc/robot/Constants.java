@@ -22,7 +22,7 @@ public final class Constants {
   }
 
   public final class LEDConstants {
-    public static final int LEDBufferLen = 140;
+    public static final int LEDBufferLen = 10;
     public static final int LED = 0;
   }
 }
