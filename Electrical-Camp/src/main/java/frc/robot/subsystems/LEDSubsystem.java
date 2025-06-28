@@ -65,16 +65,6 @@ public class LEDSubsystem extends SubsystemBase {
         setToColor(0, 255, 255);
     }
 
-    // false = broken
-    public void sarahStrobe() {
-        double timeConst = Math.PI;
-        int r = (int) Math.round(126 * Math.cos(timeConst / 4 * timer.get()) + 126);
-        int g = (int) Math.round(126 * Math.cos(timeConst / 8 * timer.get()) + 126);
-        int b = (int) Math.round(126 * Math.sin(timeConst / 2 * timer.get()) + 126);
-        for (int i = 0; i < m_LEDBuffer.getLength(); ++i)
-            setToColor(r, g, b);
-    }
-
     public void periodic() {
         m_addressableLED.setData(m_LEDBuffer);
     }
