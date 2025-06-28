@@ -1,0 +1,36 @@
+package frc.robot.commands;
+
+import frc.robot.subsystems.LEDSubsystem;
+import frc.robot.util.SubsystemContainer;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+
+public class LEDDefaultCommand extends Command {
+
+    private LEDSubsystem m_LEDSubsystem;
+
+    public LEDDefaultCommand(CommandXboxController p_buttonsController, CommandXboxController p_driverController) {
+        m_LEDSubsystem = SubsystemContainer.LEDSubsystem;
+        addRequirements(m_LEDSubsystem);
+    }
+
+    @Override
+    public void initialize() {
+        m_LEDSubsystem.setToOrange();
+    }
+
+    @Override
+    public void execute() {
+        m_LEDSubsystem.setToOrange();
+
+    }
+
+    @Override
+    public void end(boolean interrupted) {
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
+    }
+}
