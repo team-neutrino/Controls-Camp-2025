@@ -1,26 +1,29 @@
 package frc.robot.commands;
 
-import frc.robot.subsystems.LEDSubsystem;
+import frc.robot.subsystems.LED;
 import frc.robot.util.SubsystemContainer;
 import edu.wpi.first.wpilibj2.command.Command;
 
 public class LEDDefaultCommand extends Command {
 
-    private LEDSubsystem m_LEDSubsystem;
+    private LED m_LED;
 
     public LEDDefaultCommand() {
-        m_LEDSubsystem = SubsystemContainer.LEDSubsystem;
-        addRequirements(m_LEDSubsystem);
+        m_LED = SubsystemContainer.LED;
+        addRequirements(m_LED);
     }
 
     @Override
     public void initialize() {
-        m_LEDSubsystem.setToOrange();
+        m_LED.setToOrange();
     }
 
     @Override
     public void execute() {
-        m_LEDSubsystem.setToOrange();
+        if (m_LED.isBeamBroken()) {
+            m_LED.setToGreen();
+        }
+        m_LED.setToOrange();
 
     }
 

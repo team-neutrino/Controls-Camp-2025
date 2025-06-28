@@ -1,8 +1,8 @@
 package frc.robot.util;
 
 import frc.robot.Constants.LEDConstants;
-import frc.robot.subsystems.LEDSubsystem;
+import frc.robot.subsystems.LED;
 
 public class SubsystemContainer {
-    public static final LEDSubsystem LEDSubsystem = new LEDSubsystem(LEDConstants.LED);
+    public static final LED LED = new LED(LEDConstants.LED);
 }

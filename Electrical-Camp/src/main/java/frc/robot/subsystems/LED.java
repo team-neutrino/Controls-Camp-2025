@@ -2,17 +2,19 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.LEDConstants;
 
-public class LEDSubsystem extends SubsystemBase {
+public class LED extends SubsystemBase {
     private AddressableLED m_addressableLED;
     private AddressableLEDBuffer m_LEDBuffer;
     private Timer timer = new Timer();
     private int m_port;
+    private DigitalInput m_beamBreak = new DigitalInput(LEDConstants.BEAM_BREAK);
 
-    public LEDSubsystem(int p_port) {
+    public LED(int p_port) {
         m_port = p_port;
         m_addressableLED = new AddressableLED(m_port);
         m_LEDBuffer = new AddressableLEDBuffer(LEDConstants.LEDBufferLen);
@@ -21,6 +23,10 @@ public class LEDSubsystem extends SubsystemBase {
         m_addressableLED.start();
         setToOrange();
         timer.start();
+    }
+
+    public boolean isBeamBroken() {
+        return m_beamBreak.get();
     }
 
     private void setToColor(int r, int g, int b) {
