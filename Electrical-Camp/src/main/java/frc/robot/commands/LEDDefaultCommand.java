@@ -22,8 +22,9 @@ public class LEDDefaultCommand extends Command {
     public void execute() {
         if (m_LED.isBeamBroken()) {
             m_LED.setToGreen();
+        } else {
+            m_LED.setToOrange();
         }
-        m_LED.setToOrange();
 
     }
 
