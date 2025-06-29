@@ -26,4 +26,17 @@ public final class Constants {
     public static final int LED = 0;
     public static final int BEAM_BREAK = 1;
   }
+
+  public final class MotorConstants {
+    public static final int NEO_ID = 1;
+    public static final int VORTEX_ID = 2;
+    public static final int KRAKEN_ID = 3;
+    public static final int LIMIT_SWITCH = 2;
+    public static final int NEO_CURRENT_LIMIT = 40;
+    public static final int VORTEX_CURRENT_LIMIT = 60;
+    public static final int KRAKEN_CURRENT_LIMIT = 40;
+    public static final int VORTEX_MAX_VELOCITY = 40000;
+    public static final int VORTEX_MAX_ACCELERATION = 50000;
+
+  }
 }
