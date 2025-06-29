@@ -77,7 +77,6 @@ public class MotorSubsystem extends SubsystemBase {
 
   @Override
   public void periodic() {
-
     if (limitSwitchPressed()) {
       m_Neo550.set(0.6);
       m_Kraken.set(0.3);

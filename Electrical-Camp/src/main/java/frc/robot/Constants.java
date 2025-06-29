@@ -37,6 +37,5 @@ public final class Constants {
     public static final int KRAKEN_CURRENT_LIMIT = 40;
     public static final int VORTEX_MAX_VELOCITY = 40000;
     public static final int VORTEX_MAX_ACCELERATION = 50000;
-
   }
 }
