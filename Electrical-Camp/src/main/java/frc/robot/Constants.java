@@ -31,7 +31,7 @@ public final class Constants {
     public static final int NEO_ID = 1;
     public static final int VORTEX_ID = 2;
     public static final int KRAKEN_ID = 3;
-    public static final int LIMIT_SWITCH = 2;
+    public static final int LIMIT_SWITCH = 0;
     public static final int NEO_CURRENT_LIMIT = 40;
     public static final int VORTEX_CURRENT_LIMIT = 60;
     public static final int KRAKEN_CURRENT_LIMIT = 40;
