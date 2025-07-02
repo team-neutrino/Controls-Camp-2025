@@ -79,13 +79,12 @@ public class MotorSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     SmartDashboard.putBoolean("LimitSwitch", limitSwitchPressed());
-
+    m_Vortex.set(0.05);
     if (limitSwitchPressed()) {
-      m_Neo550.set(0.6);
-      m_Kraken.set(0.3);
+      m_Neo550.set(0.05);
+      m_Kraken.set(0.05);
     } else {
-      m_Neo550.set(0.4);
-      m_Vortex.set(0.5);
+      m_Neo550.set(0.5);
       m_Kraken.set(0.5);
     }
   }

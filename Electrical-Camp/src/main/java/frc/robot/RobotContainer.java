@@ -37,6 +37,7 @@ public class RobotContainer {
    */
   public RobotContainer() {
     // Configure the trigger bindings
+    m_subsystemContainer.LED.setDefaultCommand(m_LEDDefaultCommand);
     configureBindings();
   }
 
