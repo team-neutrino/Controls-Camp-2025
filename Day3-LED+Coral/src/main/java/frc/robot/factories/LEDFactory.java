@@ -5,11 +5,11 @@ package frc.robot.factories;
 import edu.wpi.first.wpilibj2.command.*;
 import frc.robot.subsystems.*;
 
-public class CoralFactory {
+public class LEDFactory {
 
-    private final Coral m_subsystem;
+    private final LED m_subsystem;
 
-    public CoralFactory(Coral subsystem) {
+    public LEDFactory(LED subsystem) {
         m_subsystem = subsystem;
     }
 

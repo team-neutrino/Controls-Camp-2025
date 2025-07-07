@@ -18,7 +18,7 @@ public class FakeSubsystem extends SubsystemBase {
 
   }
 
-
+// Problem #2
   public Command countUpCommand() {
     return run(
         () -> {
@@ -26,6 +26,7 @@ public class FakeSubsystem extends SubsystemBase {
         });
   }
 
+// Problem #3
   public Command resetCount(){
     return run(
       () -> {
