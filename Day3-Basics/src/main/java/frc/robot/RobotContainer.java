@@ -15,6 +15,7 @@ public class RobotContainer {
 
   public RobotContainer() {
     XBOX_CONTROLLER_0.a().whileTrue(m_fake_subsystem.countUpCommand());
+    XBOX_CONTROLLER_0.b().onTrue(m_fake_subsystem.resetCount());
   }
 
   public Command getAutonomousCommand() {

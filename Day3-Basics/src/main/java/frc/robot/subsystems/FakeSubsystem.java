@@ -2,26 +2,34 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.spark.SparkMax;
-import com.revrobotics.spark.SparkLowLevel.MotorType;
-
-import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj2.command.*;
 
 public class FakeSubsystem extends SubsystemBase {
+  // create your member variable here
 
   public FakeSubsystem() {
 
   }
 
+// create your method here
+
   @Override
   public void periodic() {
+
   }
 
 
   public Command countUpCommand() {
     return run(
         () -> {
+
         });
+  }
+
+  public Command resetCount(){
+    return run(
+      () -> {
+
+      });
   }
 }
