@@ -12,4 +12,8 @@ public class CoralFactory {
     public CoralFactory(Coral subsystem) {
         m_subsystem = subsystem;
     }
+
+    public Command doNothing(){
+        return m_subsystem.doNothing();
+    }
 }
