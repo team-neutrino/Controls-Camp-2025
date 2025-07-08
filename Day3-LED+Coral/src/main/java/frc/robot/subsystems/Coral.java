@@ -5,31 +5,41 @@ package frc.robot.subsystems;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj2.command.*;
 
 public class Coral extends SubsystemBase {
 
-  private SparkMax m_coralMotor = new SparkMax(2, MotorType.kBrushless);
+  private SparkMax m_coralMotor = new SparkMax(3, MotorType.kBrushless);
   private RelativeEncoder m_encoder = m_coralMotor.getEncoder();
+  private SparkMaxConfig m_coralConfig = new SparkMaxConfig(); 
 
   public Coral() {
+    m_coralConfig.smartCurrentLimit(40);
+    m_coralConfig.inverted(false);
+    m_coralConfig.idleMode(IdleMode.kCoast);
+  }
 
+  // make methods here
+  public void setMotorVoltage(double speed) {
+    m_coralMotor.set(speed);
   }
 
   @Override
   public void periodic() {
-    m_coralMotor.setVoltage(2);
+    setMotorVoltage(.5);
   }
 
   public Command doNothing() {
-    return runOnce(
+    return run(
         () -> {
         });
   }
 
-  public Command colorCommand(int r, int g, int b) {
+  public Command runMotor() {
     return run(
         () -> {
         });

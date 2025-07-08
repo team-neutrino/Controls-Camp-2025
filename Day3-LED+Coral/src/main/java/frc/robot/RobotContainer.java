@@ -23,6 +23,8 @@ public class RobotContainer {
     XBOX_CONTROLLER_0.b().whileTrue(m_led_factory.orange());
     XBOX_CONTROLLER_0.x().whileTrue(m_led_factory.toggleWhiteAndOrange());
     XBOX_CONTROLLER_0.y().whileTrue(m_led_factory.rainbow());
+    XBOX_CONTROLLER_0.leftBumper().whileTrue(m_coral_factory.runMotor());
+    XBOX_CONTROLLER_0.rightBumper().whileTrue(m_coral_factory.runMotorSlow());
   }
 
   public Command getAutonomousCommand() {
