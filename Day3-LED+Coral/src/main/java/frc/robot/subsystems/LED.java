@@ -22,6 +22,12 @@ public class LED extends SubsystemBase {
     m_addressableLED.start();
   }
 
+  public void changeLEDColor(int r, int g, int b){
+    for(int i = 0; i < m_LEDBuffer.getLength(); ++i) {
+      m_LEDBuffer.setRGB(i, r, g, b);
+  }
+  }
+
   @Override
   public void periodic() {
     m_addressableLED.setData(m_LEDBuffer);
