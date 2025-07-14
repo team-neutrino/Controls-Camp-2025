@@ -44,4 +44,54 @@ public final class Constants {
     public static final int FAST_10MS = 10;
   }
 
+  public static class ArmConstants {
+    public static final int MOTOR_ID = 10;
+
+    public static final double STARTING_POSITION = 180;
+    public static final double DEFAULT_POSITION = 160;
+    public static final double DEFAULT_NO_GP = 170;
+    public static final double SAFE_BACK_POS = 230;
+    public static final double GROUND_ALGAE_POSITION = 95;
+    public static final double CORAL_STATION_POSITION = 323;
+    public static final double L1_UNDERHAND = 335.0;
+    public static final double L1_POSITION = 131.0;
+    public static final double L2_POSITION = 142.0;
+    public static final double L3_POSITION = 142.0;
+    public static final double L4_POSITION = 143.0;
+    public static final double BARGE_POSITION = 180.0;
+    public static final double PROCESSOR_POSITION = 270.0;
+    public static final double EVACUATE_ANGLE = 20.0;
+    public static final double REEF_DESCORE_POSITION = 55.0;
+    public static final double ALGAE_FRONT_SAFE_ANGLE = 90;
+
+    public static final double DRIVING_ANGLE_TOLERANCE = 2.0;
+    public static final double INTAKE_ANGLE_TOLERANCE = 20.0;
+
+    public static final double ENCODER_ZERO_OFFSET = 0;
+    public static final int CURRENT_LIMIT = 60;
+
+    public static final double MAX_VELOCITY = 40000;
+    public static final double MAX_ACCELERATION = 50000;
+    public static final double ALLOWED_ERROR = 0.7;
+
+    public static final double GAIN_THRESHOLD = 6;
+
+    public static final double kp = 0.025;
+    public static final double ki = 0;
+    public static final double kd = 0;
+    public static final double kp1 = 0.05;
+    public static final double ki1 = 0;
+    public static final double kd1 = 0;
+    public static final double kp2 = 0.01;
+    public static final double ki2 = 0;
+    public static final double kd2 = 0;
+
+    public static final double ArmIZone = 2;
+
+    public static final double FFCONSTANT = 0.04;
+    public static final double ALGAE_FF = 0.01;
+
+    public static final double GEAR_RATIO = 125;
+  }
+
 }

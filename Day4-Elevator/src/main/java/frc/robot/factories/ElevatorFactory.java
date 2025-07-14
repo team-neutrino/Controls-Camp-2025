@@ -1,8 +1,26 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 package frc.robot.factories;
 
-/** Add your docs here. */
-public class ElevatorFactory {}
+import edu.wpi.first.wpilibj2.command.Command;
+
+import static frc.robot.Constants.ElevatorConstants.*;
+import static frc.robot.util.Subsystem.elevator;
+
+public class ElevatorFactory {
+
+    public static Command moveL1() {
+        return elevator.moveElevatorCommand(L1);
+    }
+
+    public static Command moveL2() {
+        return elevator.moveElevatorCommand(L2);
+    }
+
+    public static Command moveL3() {
+        return elevator.moveElevatorCommand(L3);
+    }
+
+    public static Command moveL4() {
+        return elevator.moveElevatorCommand(L4);
+    }
+
+}
