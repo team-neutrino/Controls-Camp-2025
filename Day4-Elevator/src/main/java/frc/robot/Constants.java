@@ -20,4 +20,28 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  public static class ElevatorConstants {
+    public static final int MOTOR_ID = 2; // CAN ID of the leading elevator motor
+    public static final int FOLLOWER_ID = 3; // CAN ID of the follower elevator motor
+    public static final int CURRENT_LIMIT = 60; // Current limit on the elevator motor
+    public static final double DEFAULT_HEIGHT = 0.0; // Default position of the elevator
+    public static final double STAGE_ONE_HEIGHT = 26.0; // The height of the elevator's first stage
+    public static final double L1 = 12.0; // Height to score in trough
+    public static final double L2 = 17.0; // Height to score on L2
+    public static final double L3 = 32.5; // Height to score on L3
+    public static final double L4 = 55.5; // Height to score on L4
+    public static final double P_VAL = 0.15; // P value
+    public static final double I_VAL = 0.0; // I value
+    public static final double D_VAL = 1.0; // D value
+    public static final double STAGE_1_FF = 0.20; // Feedforward value for the first elevator stage
+    public static final double STAGE_2_FF = 0.30; // Feedforward value for after the second stage is picked up
+    public static final double HEIGHT_TOLERANCE = 0.6; // Tolerance for error in our height (target-actual)
+  }
+
+  public final class CANRateConstants {
+    public static final int FASTEST_5MS = 5;
+    public static final int FAST_10MS = 10;
+  }
+
 }
