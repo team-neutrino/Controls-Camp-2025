@@ -12,6 +12,7 @@ public class LedSubsystem extends SubsystemBase {
 
   private AddressableLED m_addressableLED;
   private AddressableLEDBuffer m_LEDBuffer;
+  private Timer m_timer = new Timer();
 
   public LedSubsystem() {
     m_addressableLED = new AddressableLED(ROBORIO_LED_PWM_PORT);
@@ -19,6 +20,7 @@ public class LedSubsystem extends SubsystemBase {
     m_addressableLED.setLength(m_LEDBuffer.getLength());
     m_addressableLED.setData(m_LEDBuffer);
     m_addressableLED.start();
+    m_timer.start();
   }
 
   @Override
