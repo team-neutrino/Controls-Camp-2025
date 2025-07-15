@@ -35,6 +35,10 @@ public class Elevator extends SubsystemBase {
   private double m_FFStage2 = STAGE_2_FF;
 
   public Elevator() {
+    initializeMotorControllers();
+  }
+
+  private void initializeMotorControllers() {
     m_config
         .inverted(true)
         .idleMode(IdleMode.kBrake);
@@ -83,40 +87,42 @@ public class Elevator extends SubsystemBase {
   }
 
   private void adjustElevator(double target) {
-    m_pid.setReference(target, ControlType.kPosition, ClosedLoopSlot.kSlot0, feedForwardCalculation());
+    // Use your SparkClosedLoopController, m_pid, to move the elevator by setting a
+    // target. This can be done using a method for the SparkClosedLoopController
+    // class (check out the linked documentation!). Set the control type to
+    // 'position' and the slot to '0'
   }
 
   private double feedForwardCalculation() {
-    double feedForward = m_FFStage1;
-    if (m_encoder.getPosition() >= STAGE_ONE_HEIGHT) {
-      feedForward = m_FFStage2;
-    }
-    // Complete this method that calculates the elevator's feedforward (a voltage
+    double feedForward;
+    // Complete this method that returns the elevator's feedforward (a voltage
     // needed to counteract the force of gravity on the elevator). We need two
     // values because the elevator will weigh more once it picks up its next stage.
-    // (remember the demo?)
+    // (remember the Day 3 demo?)
+
     return feedForward;
+    // Once you have completed this, go ahead and make it the 4th parameter of your
+    // call to the 'setReference' method in 'adjustElevator.' This will add your
+    // feedforward to your elevator control!
   }
 
   private void resetEncoder(double position) {
-    m_encoder.setPosition(position);
+    // Complete this method so that it sets the encoder's position to the position
+    // given as a parameter!
   }
 
-  public double getBusVoltage() {
-    return m_motor.getBusVoltage();
+  public boolean isAtBottom() {
+    // Complete this method so that it returns true when the limit switch at the
+    // bottom of the elevator is pressed and false otherwise
+    return false;
   }
 
-  public double getOutputCurrent() {
-    return m_motor.getOutputCurrent();
+  public void setTargetHeight() {
+    // Change this method so that it takes in a parameter 'height' (in inches) and
+    // sets the target to that height.
   }
 
-  public int getFaultRawBits() {
-    return m_motor.getStickyFaults().rawBits;
-  }
-
-  public boolean getGateDriver() {
-    return m_motor.getStickyFaults().gateDriver;
-  }
+  // Below, write the three getter methods from slide ___
 
   public double getVelocity() {
     return m_encoder.getVelocity();
@@ -130,24 +136,6 @@ public class Elevator extends SubsystemBase {
     return m_targetHeight;
   }
 
-  public boolean isAtBottom() {
-    return m_lowLimit.isPressed();
-  }
-
-  public void changeFF2(double newFF) {
-    m_FFStage2 = newFF;
-  }
-
-  public void changeMaxMotion(double mv, double ma, double ae) {
-    m_config.closedLoop.maxMotion.maxVelocity(mv).maxAcceleration(ma).allowedClosedLoopError(ae);
-    m_motor.configure(m_config, ResetMode.kResetSafeParameters,
-        PersistMode.kPersistParameters);
-  }
-
-  public void setTargetHeight(double height) {
-    m_targetHeight = height;
-  }
-
   @Override
   public void periodic() {
     adjustElevator(m_targetHeight);
@@ -156,20 +144,19 @@ public class Elevator extends SubsystemBase {
     }
   }
 
-  @Override
-  public void simulationPeriodic() {
-
-  }
-
   public Command elevatorDefaultCommand() {
     return run(() -> {
-      // Finish the default command here
+      // Finish the default command here so that the elevator is all the way down by
+      // default
     });
   }
 
   public Command moveElevatorCommand(double height) {
     return run(() -> {
-      m_targetHeight = height;
+      // Complete this command to make the elevator move to a given height.
+      // Hint: The name of this command is slightly misleading. You already 'adjust'
+      // the elevator in periodic. What would you need to change to make the elevator
+      // go somewhere else?
     });
   }
 }
