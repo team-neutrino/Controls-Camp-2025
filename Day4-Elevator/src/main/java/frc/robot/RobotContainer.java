@@ -5,12 +5,14 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.subsystems.Elevator;
+import frc.robot.factories.ElevatorFactory;
 import frc.robot.util.Subsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+
+import static frc.robot.util.Subsystem.*;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -24,7 +26,6 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private Subsystem subsystemContainer;
-  // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_buttonsController = new CommandXboxController(
       OperatorConstants.kDriverControllerPort);
 
@@ -33,7 +34,7 @@ public class RobotContainer {
    */
   public RobotContainer() {
     subsystemContainer = new Subsystem();
-    // Configure the trigger bindings
+    configureDefaultCommands();
     configureBindings();
   }
 
@@ -52,7 +53,15 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
+    m_buttonsController.x().whileTrue(ElevatorFactory.moveL1());
+    m_buttonsController.y().whileTrue(ElevatorFactory.moveL2());
+    m_buttonsController.b().whileTrue(ElevatorFactory.moveL3());
+    m_buttonsController.a().whileTrue(ElevatorFactory.moveL4());
+  }
 
+  private void configureDefaultCommands() {
+    arm.setDefaultCommand(arm.armDefaultCommand());
+    elevator.setDefaultCommand(elevator.elevatorDefaultCommand());
   }
 
   /**

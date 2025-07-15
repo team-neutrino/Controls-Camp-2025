@@ -24,15 +24,14 @@ import static frc.robot.Constants.CANRateConstants.*;
 public class Elevator extends SubsystemBase {
   private SparkFlex m_motor = new SparkFlex(MOTOR_ID, MotorType.kBrushless);
   private SparkFlex m_follower = new SparkFlex(FOLLOWER_ID, MotorType.kBrushless);
-  private RelativeEncoder m_encoder = m_motor.getEncoder();
-  private SparkLimitSwitch m_lowLimit = m_motor.getReverseLimitSwitch();
   private SparkClosedLoopController m_pid = m_motor.getClosedLoopController();
   private SparkFlexConfig m_config = new SparkFlexConfig();
   private SparkFlexConfig m_followerConfig = new SparkFlexConfig();
-
+  private RelativeEncoder m_encoder; // Define m_encoder as the built-in relative encoder that
+  // belongs to the leader motor (m_motor)
+  private SparkLimitSwitch m_lowLimit; // Define m_lowLimit as the limit switch connected to the leader motor. It
+  // should be a reverse limit switch.
   private double m_targetHeight = DEFAULT_HEIGHT;
-  private double m_FFStage1 = STAGE_1_FF;
-  private double m_FFStage2 = STAGE_2_FF;
 
   public Elevator() {
     initializeMotorControllers();
@@ -94,7 +93,7 @@ public class Elevator extends SubsystemBase {
   }
 
   private double feedForwardCalculation() {
-    double feedForward;
+    double feedForward = 0;
     // Complete this method that returns the elevator's feedforward (a voltage
     // needed to counteract the force of gravity on the elevator). We need two
     // values because the elevator will weigh more once it picks up its next stage.
@@ -122,7 +121,7 @@ public class Elevator extends SubsystemBase {
     // sets the target to that height.
   }
 
-  // Below, write the three getter methods from slide ___
+  // Below, write the three getter methods from slide ___.
 
   public double getVelocity() {
     return m_encoder.getVelocity();
@@ -138,10 +137,9 @@ public class Elevator extends SubsystemBase {
 
   @Override
   public void periodic() {
-    adjustElevator(m_targetHeight);
-    if (isAtBottom()) {
-      resetEncoder(DEFAULT_HEIGHT);
-    }
+    // Using the methods you have written, complete periodic so that the elevator is
+    // always trying to get to its target. If it touches the limit switch at the
+    // bottom, we want to reset the height here, too.
   }
 
   public Command elevatorDefaultCommand() {
