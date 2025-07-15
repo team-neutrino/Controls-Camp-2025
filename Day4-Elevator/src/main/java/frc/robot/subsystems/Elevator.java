@@ -27,10 +27,13 @@ public class Elevator extends SubsystemBase {
   private SparkClosedLoopController m_pid = m_motor.getClosedLoopController();
   private SparkFlexConfig m_config = new SparkFlexConfig();
   private SparkFlexConfig m_followerConfig = new SparkFlexConfig();
+
   private RelativeEncoder m_encoder; // Define m_encoder as the built-in relative encoder that
   // belongs to the leader motor (m_motor)
   private SparkLimitSwitch m_lowLimit; // Define m_lowLimit as the limit switch connected to the leader motor. It
   // should be a reverse limit switch.
+
+  // Define a new member variable that represents the target height
   private double m_targetHeight = DEFAULT_HEIGHT;
 
   public Elevator() {
