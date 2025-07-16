@@ -29,11 +29,4 @@ public class LEDFactory {
         return m_subsystem.colorCommand(255, 165, 0);
     }
 
-    public Command toggleWhiteAndOrange() {
-        return m_subsystem.doNothing();
-    }
-
-    public Command rainbow() {
-        return m_subsystem.doNothing();
-    }
 }
