@@ -16,4 +16,12 @@ public class CoralFactory {
     public Command doNothing(){
         return m_subsystem.doNothing();
     }
+
+    public Command runMotor(){
+        return m_subsystem.doNothing();
+    }
+
+    public Command runMotorSlow(){
+        return m_subsystem.doNothing();
+    }
 }

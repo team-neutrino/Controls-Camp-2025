@@ -22,11 +22,11 @@ public class LEDFactory {
     }
 
     public Command white() {
-        return m_subsystem.doNothing();
+        return m_subsystem.colorCommand(255, 255, 255);
     }
 
     public Command orange() {
-        return m_subsystem.doNothing();
+        return m_subsystem.colorCommand(255, 165, 0);
     }
 
     public Command toggleWhiteAndOrange() {
