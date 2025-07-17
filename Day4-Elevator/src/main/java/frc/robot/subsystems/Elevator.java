@@ -30,18 +30,26 @@ public class Elevator extends SubsystemBase {
   private SparkFlexConfig m_config = new SparkFlexConfig();
   private SparkFlexConfig m_followerConfig = new SparkFlexConfig();
 
-  private RelativeEncoder m_encoder; // Define m_encoder as the built-in relative encoder that
+  // Define m_encoder as the built-in relative encoder that
   // belongs to the leader motor (m_motor)
-  private SparkLimitSwitch m_lowLimit; // Define m_lowLimit as the limit switch connected to the leader motor. It
-  // should be a reverse limit switch.
+  private RelativeEncoder m_encoder;
 
-  // Define a new member variable that represents the target height
+  // Define m_lowLimit as the limit switch connected to the
+  // leader motor. It should be a reverse limit switch.
+  private SparkLimitSwitch m_lowLimit;
+
+  // Define a new member variable that represents the target height. We want its
+  // initial value to be 0 (check constants!)
   private double m_targetHeight = DEFAULT_HEIGHT;
 
+  // Here's our elevator constructor- all it has to do is initialize
+  // our motor controllers.
   public Elevator() {
     initializeMotorControllers();
   }
 
+  // This method initializes and sets up the motor controllers for both elevator
+  // motors. Don't worry about it for now- but take a look if you're interested!
   private void initializeMotorControllers() {
     m_config
         .inverted(true)
@@ -94,7 +102,7 @@ public class Elevator extends SubsystemBase {
     // Use your SparkClosedLoopController, m_pid, to move the elevator by setting a
     // target. This can be done using a method for the SparkClosedLoopController
     // class (check out the linked documentation on the slide!). Set the control
-    // type to 'position' and the slot to '0'
+    // type to 'kPosition' and the slot to 'kSlot0'
   }
 
   private double feedForwardCalculation() {
