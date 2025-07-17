@@ -22,6 +22,8 @@ import static frc.robot.Constants.ElevatorConstants.*;
 import static frc.robot.Constants.CANRateConstants.*;
 
 public class Elevator extends SubsystemBase {
+  // These member variables have already been defined. Take a close look at how
+  // they were defined and how the constants were used!
   private SparkFlex m_motor = new SparkFlex(MOTOR_ID, MotorType.kBrushless);
   private SparkFlex m_follower = new SparkFlex(FOLLOWER_ID, MotorType.kBrushless);
   private SparkClosedLoopController m_pid = m_motor.getClosedLoopController();
@@ -91,8 +93,8 @@ public class Elevator extends SubsystemBase {
   private void adjustElevator(double target) {
     // Use your SparkClosedLoopController, m_pid, to move the elevator by setting a
     // target. This can be done using a method for the SparkClosedLoopController
-    // class (check out the linked documentation!). Set the control type to
-    // 'position' and the slot to '0'
+    // class (check out the linked documentation on the slide!). Set the control
+    // type to 'position' and the slot to '0'
   }
 
   private double feedForwardCalculation() {
