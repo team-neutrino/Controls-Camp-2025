@@ -24,13 +24,9 @@ public class Coral extends SubsystemBase {
   }
 
   // make methods here
-  public void setMotorVoltage(double speed) {
-    m_coralMotor.set(speed);
-  }
 
   @Override
   public void periodic() {
-    setMotorVoltage(.5);
   }
 
   public Command doNothing() {
