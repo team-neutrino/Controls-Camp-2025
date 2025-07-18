@@ -40,7 +40,7 @@ public class Elevator extends SubsystemBase {
 
   // Define a new member variable that represents the target height. We want its
   // initial value to be 0 (check constants!)
-  private double m_targetHeight = DEFAULT_HEIGHT;
+  private double m_targetHeight;
 
   // Here's our elevator constructor- all it has to do is initialize
   // our motor controllers.
@@ -135,7 +135,6 @@ public class Elevator extends SubsystemBase {
   }
 
   // Below, write the three getter methods from step 6
-
 
   @Override
   public void periodic() {
