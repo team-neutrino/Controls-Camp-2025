@@ -134,19 +134,8 @@ public class Elevator extends SubsystemBase {
     // sets the target to that height.
   }
 
-  // Below, write the three getter methods from slide ___.
+  // Below, write the three getter methods from step 6
 
-  public double getVelocity() {
-    return m_encoder.getVelocity();
-  }
-
-  public double getHeight() {
-    return m_encoder.getPosition();
-  }
-
-  public double getTargetHeight() {
-    return m_targetHeight;
-  }
 
   @Override
   public void periodic() {
