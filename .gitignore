@@ -27,3 +27,6 @@ hs_err_pid*
 replay_pid*
 
 Day3-LED\+Coral/simgui-ds.json
+
+*.bin
+*.lock
