@@ -9,7 +9,7 @@ public class LEDDefaultCommand extends Command {
     private LED m_LED;
 
     public LEDDefaultCommand() {
-        m_LED = SubsystemContainer.LED;
+        m_LED = SubsystemContainer.LEDSubsystem;
         addRequirements(m_LED);
     }
 

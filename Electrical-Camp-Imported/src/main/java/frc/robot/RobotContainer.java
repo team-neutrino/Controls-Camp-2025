@@ -6,7 +6,6 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.LEDDefaultCommand;
-import frc.robot.subsystems.MotorSubsystem;
 import frc.robot.util.SubsystemContainer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -26,7 +25,6 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   SubsystemContainer m_subsystemContainer = new SubsystemContainer();
   LEDDefaultCommand m_LEDDefaultCommand = new LEDDefaultCommand();
-  public final MotorSubsystem motorSubsystem = new MotorSubsystem();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController = new CommandXboxController(
@@ -37,7 +35,11 @@ public class RobotContainer {
    */
   public RobotContainer() {
     // Configure the trigger bindings
-    m_subsystemContainer.LED.setDefaultCommand(m_LEDDefaultCommand);
+    SubsystemContainer.LEDSubsystem.setDefaultCommand(m_LEDDefaultCommand);
+
+    m_driverController.a().whileTrue(SubsystemContainer.motorSubsystem.runNeo550());
+    m_driverController.b().whileTrue(SubsystemContainer.motorSubsystem.runNeo());
+    m_driverController.x().whileTrue(SubsystemContainer.LEDSubsystem.makeBlue());
     configureBindings();
   }
 

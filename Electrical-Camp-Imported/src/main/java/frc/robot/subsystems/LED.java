@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.LEDConstants;
 
@@ -69,6 +70,12 @@ public class LED extends SubsystemBase {
 
     public void setToCyan() {
         setToColor(0, 255, 255);
+    }
+
+    public Command makeBlue() {
+        return run(() -> {
+            setToBlue();
+        });
     }
 
     public void periodic() {
