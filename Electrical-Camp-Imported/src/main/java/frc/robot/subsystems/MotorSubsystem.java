@@ -19,7 +19,7 @@ import static frc.robot.Constants.MotorConstants.*;
 
 public class MotorSubsystem extends SubsystemBase {
   /** Creates a new MotorSubsystem. */
-  private SparkMax m_Neo550 = new SparkMax(NEO_ID, MotorType.kBrushless);
+  private SparkMax m_Neo550 = new SparkMax(NEO550_ID, MotorType.kBrushless);
   private SparkMaxConfig m_neo550Config = new SparkMaxConfig();
   private SparkMax m_Neo = new SparkMax(NEO_ID, MotorType.kBrushless);
   private SparkMaxConfig m_neoConfig = new SparkMaxConfig();

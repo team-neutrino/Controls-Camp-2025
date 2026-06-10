@@ -28,9 +28,8 @@ public final class Constants {
   }
 
   public final class MotorConstants {
-    public static final int NEO_ID = 1;
-    public static final int VORTEX_ID = 2;
-    public static final int KRAKEN_ID = 3;
+    public static final int NEO550_ID = 1;
+    public static final int NEO_ID = 2;
     public static final int LIMIT_SWITCH = 9;
     public static final int NEO_CURRENT_LIMIT = 40;
     public static final int VORTEX_CURRENT_LIMIT = 60;
