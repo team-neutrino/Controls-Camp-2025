@@ -58,6 +58,13 @@ public class MotorSubsystem extends SubsystemBase {
     });
   }
 
+  public Command defaultCommand() {
+    return run(() -> {
+      m_Neo.set(0);
+      m_Neo550.set(0);
+    });
+  }
+
   @Override
   public void periodic() {
   }

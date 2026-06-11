@@ -36,6 +36,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     SubsystemContainer.LEDSubsystem.setDefaultCommand(m_LEDDefaultCommand);
+    SubsystemContainer.motorSubsystem.setDefaultCommand(SubsystemContainer.motorSubsystem.defaultCommand());
 
     m_driverController.a().whileTrue(SubsystemContainer.motorSubsystem.runNeo550());
     m_driverController.b().whileTrue(SubsystemContainer.motorSubsystem.runNeo());
